@@ -1,3 +1,10 @@
+@mixin flexCentered($flexDirection: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $flexDirection;
+}
+
 *, *:after, *:before {
   box-sizing: border-box;
   padding: 0;
@@ -6,6 +13,7 @@
 
 body {
   font-family: 'Noto Sans', sans-serif;
+  height: 100vh;
 }
 
 .container {
@@ -17,6 +25,19 @@ body {
   display: flex;
   justify-content: center;
   border-bottom: #275285 1px solid;
+}
+
+.footer {
+  height: 100px;
+  background-color: rgba(39, 82, 133, .85);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  @include flexCentered;
+
+  &__text {
+    color: #fff;
+  }
 }
 
 .logo {
@@ -33,9 +54,8 @@ body {
 
     &-item {
       height: 100%;
-      display: flex;
-      align-items: center;
       margin-right: 3em;
+      @include flexCentered;
 
       // Turn off hover effect for the first child (logo)
       &:first-child .nav__list-link:hover:after {
