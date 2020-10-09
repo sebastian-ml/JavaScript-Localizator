@@ -7,6 +7,15 @@
 body {
   font-family: "Noto Sans", sans-serif;
   height: 100vh;
+  position: relative;
+}
+
+main {
+  height: calc(100% - (100px + 70px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .container {
@@ -35,12 +44,29 @@ body {
   color: #fff;
 }
 
+.btn {
+  background-color: #0099c1;
+  border: none;
+  border-radius: 100px;
+  color: #ffffff;
+  padding: 0.6em 1.8em;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 100ms ease-in-out;
+}
+.btn:hover {
+  background-color: #00aad3;
+}
+
 .logo {
   height: 35px;
 }
 
 .nav {
   height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .nav__list {
   list-style: none;
@@ -54,9 +80,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-}
-.nav__list-item:first-child .nav__list-link:hover:after {
-  visibility: hidden;
 }
 .nav__list-link {
   color: inherit;

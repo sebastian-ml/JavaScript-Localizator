@@ -5,6 +5,9 @@
   flex-direction: $flexDirection;
 }
 
+$footer-height: 100px;
+$header-height: 70px;
+
 *, *:after, *:before {
   box-sizing: border-box;
   padding: 0;
@@ -14,6 +17,12 @@
 body {
   font-family: 'Noto Sans', sans-serif;
   height: 100vh;
+  position: relative;
+}
+
+main {
+  height: calc(100% - (#{$footer-height} + #{$header-height}));
+  @include flexCentered;
 }
 
 .container {
@@ -21,14 +30,14 @@ body {
 }
 
 .header {
-  height: 70px;
+  height: $header-height;
   display: flex;
   justify-content: center;
   border-bottom: #275285 1px solid;
 }
 
 .footer {
-  height: 100px;
+  height: $footer-height;
   background-color: rgba(39, 82, 133, .85);
   position: absolute;
   bottom: 0;
@@ -40,12 +49,30 @@ body {
   }
 }
 
+.btn {
+  background-color: #0099c1;
+  border: none;
+  border-radius: 100px;
+  color: #ffffff;
+  padding: .6em 1.8em;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 100ms ease-in-out;
+
+  &:hover {
+    background-color: #00aad3;
+  }
+}
+
 .logo {
   height: 35px;
 }
 
 .nav {
   height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &__list {
     list-style: none;
@@ -56,11 +83,6 @@ body {
       height: 100%;
       margin-right: 3em;
       @include flexCentered;
-
-      // Turn off hover effect for the first child (logo)
-      &:first-child .nav__list-link:hover:after {
-        visibility: hidden;
-      }
     }
 
     &-link {
