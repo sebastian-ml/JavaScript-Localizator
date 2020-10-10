@@ -23,6 +23,10 @@ body {
 main {
   height: calc(100% - (#{$footer-height} + #{$header-height}));
   @include flexCentered;
+
+  & .container {
+    @include flexCentered;
+  }
 }
 
 .container {
@@ -62,6 +66,18 @@ main {
   &:hover {
     background-color: #00aad3;
   }
+}
+
+#map {
+  width: 800px;
+  max-height: 90%;
+  height: 500px;
+  border-radius: 5px;
+  display: none;
+
+  box-shadow: 0 0 9px 6px rgba(140,140,140,0.65);
+  -webkit-box-shadow: 0 0 9px 6px rgba(140,140,140,0.65);
+  -moz-box-shadow: 0 0 9px 6px rgba(140,140,140,0.65);
 }
 
 .logo {
