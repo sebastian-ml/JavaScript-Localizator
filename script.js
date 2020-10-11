@@ -1,4 +1,8 @@
+// HTML tag with a pending gif
 const figure = document.getElementsByClassName('figure')[0];
+
+const mapContainer = document.getElementById('map');
+const btn = document.getElementsByClassName('btn')[0];
 
 // Initialize and add the map
 function initMap(position) {
@@ -20,38 +24,40 @@ function initMap(position) {
         position: userCoords,
         map: map
     });
-    mapContainer.style.display = 'block';
+    mapContainer.style.display = 'block'; // Show the map on the site
 }
 
-const mapContainer = document.getElementById('map');
-const btn = document.getElementsByClassName('btn')[0];
-btn.addEventListener('click', displayUserLocation);
-
-// Show user location on map
-function displayUserLocation() {
-    btn.style.display = 'none';
-    if('geolocation' in navigator) {
-        // Show a pending gif
-        figure.style.display = 'flex';
-
-        // Get user coordinates
-        navigator.geolocation.getCurrentPosition(initMap, locationDenied);
-    } else {
-        alert('There is no geolocation in your device');
-    }
-}
-
-const alertBox = document.getElementsByClassName('alert-box')[0];
-const alertBoxExit = alertBox.getElementsByClassName('exit-shape')[0];
-alertBoxExit.addEventListener('click', HideBox);
-
+// Change style if user has denied location share
 function locationDenied() {
-    // Style the site properly if user has denied location share
     figure.style.display = 'none';
     btn.style.display = 'block';
     alertBox.style.display = 'flex';
     alertBox.style.opacity = '1';
 }
+
+// Check if the user accept location prompt and draw a map or show a warning if not
+function drawUserPosition() {
+    // Check if the user has geolocation
+    if('geolocation' in navigator) {
+        let getUserPosition = new Promise(function(resolve, reject) {
+            btn.style.display = 'none';
+            figure.style.display = 'flex';
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        })
+
+        getUserPosition
+            .then(initMap)
+            .catch(locationDenied)
+    } else {
+        alert('There is no geolocation in your device');
+    }
+}
+
+btn.addEventListener('click', drawUserPosition);
+
+const alertBox = document.getElementsByClassName('alert-box')[0];
+const alertBoxExit = alertBox.getElementsByClassName('exit-shape')[0];
+alertBoxExit.addEventListener('click', HideBox);
 
 // Hide the box if user clicks the exit button
 function HideBox() {
