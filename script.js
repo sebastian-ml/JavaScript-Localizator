@@ -69,4 +69,3 @@ function HideBox() {
         alertBox.style.display = "none";
         }, 600);
 }
-
