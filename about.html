@@ -25,7 +25,37 @@
     </div>
 </header>
 
-<main>
+<main class="main main--about">
+    <div class="container">
+        <header>
+            <h1>About us</h1>
+            <p>We provide location detection for free. You do not require any account. If you like our service, please share with friends.</p>
+        </header>
+
+        <p>If you have any suggestions, do not hesitate to contact us.</p>
+
+        <form class="contact">
+            <div class="contact__item contact__item--1">
+                <label class="contact__label" for="name">Name</label>
+                <input class="contact__input" type="text" id="name" name="name">
+            </div>
+            <div class="contact__item contact__item--2">
+                <label class="contact__label" for="email">Email</label>
+                <input class="contact__input" type="text" id="email" name="email">
+            </div>
+            <div class="contact__item contact__item--3">
+                <label class="contact__label" for="subject">Subject</label>
+                <input class="contact__input" type="text" id="subject" name="subject">
+            </div>
+            <div class="contact__item contact__item--4">
+                <label class="contact__label" for="message">Message</label>
+                <textarea class="contact__input contact__input--large" id="message" name="message" maxlength="300" placeholder="Your message should contain up to 300 characters."></textarea>
+            </div>
+            <div class="contact__item contact__item--5">
+                <input class="btn" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </main>
 
 <footer class="footer">

@@ -10,22 +10,89 @@ body {
   position: relative;
 }
 
-main {
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.main {
   height: calc(100% - (100px + 70px));
+  display: flex;
+  justify-content: center;
+}
+.main--home {
+  align-items: center;
+}
+.main--home .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
-main .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+.main--about {
+  padding: 1em;
+}
+.main--about header {
+  margin-bottom: 2em;
 }
 
 .container {
   width: 1200px;
+}
+
+.contact {
+  display: grid;
+  width: 50%;
+  grid-gap: 20px;
+  grid-template-areas: "first second" "third third" "fourth fourth" ". fifth";
+  border: #c7c7c7 1px solid;
+  border-radius: 3px;
+  padding: 1.3em;
+  margin-top: 8px;
+}
+.contact__item--1 {
+  grid-area: first;
+}
+.contact__item--2 {
+  grid-area: second;
+}
+.contact__item--3 {
+  grid-area: third;
+}
+.contact__item--4 {
+  grid-area: fourth;
+}
+.contact__item--5 {
+  grid-area: fifth;
+  text-align: right;
+}
+.contact__input {
+  border-radius: 3px;
+  border: #c7c7c7 1px solid;
+  height: 40px;
+  padding: 0.7em;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-shadow: 0 0 10px -4px rgba(0, 0, 0, 0.3);
+}
+.contact__input:focus {
+  border-radius: 3px;
+  box-shadow: 0 0 15px -4px rgba(0, 0, 0, 0.3);
+}
+.contact__input--large {
+  height: 120px;
+  resize: none;
+}
+.contact__input--large::placeholder {
+  color: #7b7b7b;
+}
+.contact__label {
+  font-size: 0.8rem;
+  color: #a3a3a3;
+}
+
+#email, #name, #subject, #message {
+  width: 100%;
 }
 
 .header {
