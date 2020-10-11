@@ -9,6 +9,14 @@
 </head>
 
 <body>
+<div class="alert-box">
+    <p class="alert-box__message">
+        You have to share your location.
+        For more information check this <a href="https://www.google.com/search?client=firefox-b-d&q=how+to+turn+on+location" target="_blank">link</a>.
+    </p>
+    <span class="exit-shape"></span>
+</div>
+
 <header class="header">
     <div class="container">
         <nav class="nav">
@@ -26,6 +34,14 @@
 </header>
 
 <main>
+    <div class="container">
+        <figure class="figure">
+            <figcaption class="figure__caption">Rendering your location. Please wait...</figcaption>
+            <img id="pending-gif" src="img/giphy.gif" alt="pending-gif">
+        </figure>
+        <div id="map"></div>
+        <button class="btn">Get your location</button>
+    </div>
 </main>
 
 <footer class="footer">
@@ -33,5 +49,8 @@
 </footer>
 
 <script src="script.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjEjy6tOfwUpILiPus66VFY6w0nFVgFdM">
+</script>
 </body>
 </html>
