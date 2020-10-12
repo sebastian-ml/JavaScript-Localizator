@@ -1,3 +1,12 @@
+// Create script with the api key and add to the body
+const googleApiKey = config.api_key;
+const script = document.createElement('script');
+script.src = 'https://maps.googleapis.com/maps/api/js?key=' + googleApiKey;
+script.setAttribute('defer', 'defer');
+script.setAttribute('async', 'async');
+const body = document.getElementsByTagName('body')[0];
+body.appendChild(script);
+
 // HTML tag with a pending gif
 const figure = document.getElementsByClassName('figure')[0];
 

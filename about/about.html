@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Localize</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -13,12 +13,12 @@
     <div class="container">
         <nav class="nav">
             <figure class="logo-wrapper">
-                <a href="home.html">
-                    <img class="logo" src="img/Horizontal-Logo.png" alt="logo">
+                <a href="../home/home.html">
+                    <img class="logo" src="../img/Horizontal-Logo.png" alt="logo">
                 </a>
             </figure>
             <ul class="nav__list">
-                <li class="nav__list-item"><a class="nav__list-link" href="home.html">Home</a></li>
+                <li class="nav__list-item"><a class="nav__list-link" href="../home/home.html">Home</a></li>
                 <li class="nav__list-item"><a class="nav__list-link" href="about.html">About</a></li>
             </ul>
         </nav>
@@ -59,7 +59,7 @@
                 </form>
             </section>
             <section class="about__location">
-                <div id="our-location-map"></div>
+                <iframe id="our-location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.718122625496!2d19.933234316044057!3d50.05411147942271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b6d053619f5%3A0xacb9dfc4d67fa598!2sZamek%20Kr%C3%B3lewski%20na%20Wawelu!5e0!3m2!1spl!2spl!4v1602517951433!5m2!1spl!2spl" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 <address class="about__address">
                     <h4>Our address</h4>
                     Wawel 5<br>
@@ -75,9 +75,7 @@
     <small class="footer__text">&copy; 2020 Localize. All Rights Reserved.</small>
 </footer>
 
+<script src="../config.js"></script>
 <script src="about.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjEjy6tOfwUpILiPus66VFY6w0nFVgFdM&callback=initMap">
-</script>
 </body>
 </html>

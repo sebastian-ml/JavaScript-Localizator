@@ -103,3 +103,6 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+# Javascript file with the Google API key
+config.js
