@@ -121,6 +121,10 @@ h1 {
     font-family: inherit;
     box-shadow: 0 0 10px -4px rgba(0,0,0,0.3);
 
+    &--error {
+      border: #ff0000a6 2px solid;
+    }
+
     &:focus {
       border-radius: 3px;
       box-shadow: 0 0 13px -4px rgba(0,0,0,0.3);
@@ -144,6 +148,12 @@ h1 {
   &__label {
     font-size: .8rem;
     color: #a3a3a3;
+  }
+
+  &__warning-message {
+    font-size: .6rem;
+    position: absolute;
+    color: #ff0000a6;
   }
 }
 
@@ -178,7 +188,6 @@ h1 {
   height: 50px;
   padding: 0 1em;
   border-radius: 5px;
-  background-color: #ffa92a;
   position: fixed;
   left: 50%;
   top: 10%;
@@ -188,6 +197,14 @@ h1 {
   transition: opacity 0.6s;
   justify-content: space-between;
   align-items: center;
+
+  &--warning {
+    background-color: #ffa92a;
+  }
+
+  &--success {
+    background-color: #008c03;
+  }
 
   & a {
     color: #275285;

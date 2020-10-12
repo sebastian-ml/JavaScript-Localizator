@@ -35,8 +35,14 @@
 
         <div class="about__body">
             <section class="about__contact">
+                <div class="alert-box alert-box--success">
+                    <p class="alert-box__message">
+                        Your message has been successfully sent.
+                    </p>
+                    <span class="exit-shape"></span>
+                </div>
                 <p class="about__par">If you have any suggestions, do not hesitate to contact us.</p>
-                <form class="contact">
+                <form method="post" action="about.html" class="contact">
                     <div class="contact__item contact__item--1">
                         <label class="contact__label" for="name">Name</label>
                         <input class="contact__input" type="text" id="name" name="name">
