@@ -20,29 +20,46 @@ const stringInputs = [
 ]
 const email = document.getElementById('email');
 
-
 const alertBox = document.getElementsByClassName('alert-box')[0];
 
-// Check if the all fields are correctly filled while user clicks the submit btn
+// Allow form submitting only if all inputs are correctly filled
 form.addEventListener('submit', (e) => {
+    // True if all fields are correct
+    const inputsCorrect = formValidation(stringInputs, email);
+    if (! (inputsCorrect)) e.preventDefault();
+})
+
+/**
+ * Check if all passed inputs are correctly filled
+ *
+ * @param strInputs The inputs which must be at least 1 character. Must be an array.
+ * @param email The email to check if it matches the correct pattern.
+ * @returns {boolean} True if all inputs are correct.
+ */
+function formValidation(strInputs, email) {
+    let correctInputs = 0;
+
     // Check if the field has at least 1 character
     stringInputs.forEach((field) => {
         if (field.value.trim().length < 1) {
             setError(field);
-            e.preventDefault();
         } else {
             cleanError(field);
+            correctInputs += 1;
         }
     })
 
     // For an email call the function to check if the email matches the pattern
     if (! (emailIsValid(email.value))) {
         setError(email, 'Your e-mail is invalid.');
-        e.preventDefault();
     } else {
         cleanError(email);
+        correctInputs += 1;
     }
-})
+
+    // Return true only if all fields are correctly filled
+    if (correctInputs === strInputs.length + 1) return true;
+}
 
 /**
  * Mark the field with an error if it is incorrectly filled
