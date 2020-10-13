@@ -1,18 +1,33 @@
 // Div with the location map
 const ourLocationMap = document.getElementById('our-location-map');
+const form = document.getElementsByClassName('contact')[0];
 
-// Set the location map height equal to the contact form
-let contactFormHeight = document.getElementsByClassName('contact')[0];
-contactFormHeight = contactFormHeight.offsetHeight;
-ourLocationMap.style.height = contactFormHeight + 'px';
+// Update styles
+function updateStyle() {
+    // Check if elements are in the same line. If yes set the margin for the second element
+    const mapContainer = ourLocationMap.parentElement.offsetHeight;
+    const formContainer = form.parentElement.offsetHeight;
+    if (mapContainer !== formContainer) {
+        ourLocationMap.style.width = '100%';
+    } else {
+        ourLocationMap.style.width = 'calc(100% - 3em)';
+    }
 
-// Make the location map at the same line as the contact form
-let contactParHeight = document.getElementsByClassName('about__par')[0];
-contactParHeight = contactParHeight.offsetHeight;
-ourLocationMap.style.marginTop = contactParHeight + 'px';
+    // Set the location map height equal to the contact form
+    let contactFormHeight = document.getElementsByClassName('contact')[0];
+    contactFormHeight = contactFormHeight.offsetHeight;
+    ourLocationMap.style.height = contactFormHeight + 'px';
+
+    // Make the location map at the same line as the contact form
+    let contactParHeight = document.getElementsByClassName('about__par')[0];
+    contactParHeight = contactParHeight.offsetHeight;
+    ourLocationMap.style.marginTop = contactParHeight + 'px';
+}
+
+updateStyle();
+window.onresize = updateStyle; // Call the function when window is resized
 
 // Input fields to validate
-const form = document.getElementsByClassName('contact')[0];
 const stringInputs = [
     document.getElementById('name'),
     document.getElementById('subject'),
